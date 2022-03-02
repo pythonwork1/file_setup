@@ -66,7 +66,7 @@ def page1_nextp(file_name,file_size):
                     pageSetup.after(10000,lambda:change_pageSetup_copynewfile(i))
 
             def download():
-                Repo.clone_from("<#url>","<#file_out>")
+                Repo.clone_from("<#url>",page3_path.get('1.0','end'))
 
             threading.Thread(target=lambda:setup(file_name,file_size)).run()
             threading.Thread(target=lambda:download()).run()
