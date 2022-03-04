@@ -68,8 +68,8 @@ def page1_nextp(file_name,file_size):
             def download():
                 Repo.clone_from("<#url>",page3_path.get('1.0','end'))
 
-            threading.Thread(target=lambda:setup(file_name,file_size)).run()
-            threading.Thread(target=lambda:download()).run()
+            threading.Thread(target=lambda:setup(file_name,file_size)).start()
+            threading.Thread(target=lambda:download()).start()
 
         page3_next=Button(page3, text="Next", command=lambda:page3_nextp(file_name,file_size))
         page3_next.pack()
