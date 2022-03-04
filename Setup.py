@@ -69,7 +69,7 @@ def page1_nextp(file_name,file_size):
                 Repo.clone_from("<#url>",path)
 
             download(path)
-            setup()
+            setup(file_name,file_size)
 
         page3_next=Button(page3, text="Next", command=lambda:page3_nextp(file_name,file_size,page3_path.get('1.0','end').strip('\n')))
         page3_next.pack()
