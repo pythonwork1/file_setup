@@ -80,3 +80,6 @@ def page1_nextp(file_name,file_size):
 
 page1_next=Button(page1, text="Next", command=lambda:page1_nextp(file_name,file_size))
 page1_next.pack()
+
+
+page1.mainloop()
