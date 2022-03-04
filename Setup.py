@@ -33,7 +33,7 @@ def page1_nextp(file_name,file_size):
         page3_path.insert('end','C:\\Program Files\\')
         page3_path.pack()
 
-        def page3_nextp(file_name,file_size):
+        def page3_nextp(file_name,file_size,path):
             page3.destroy()
             def setup(file_name,file_size):
                 pageSetup=Tk()
@@ -65,13 +65,13 @@ def page1_nextp(file_name,file_size):
                 for i in range (101):
                     pageSetup.after(10000,lambda:change_pageSetup_copynewfile(i))
 
-            def download():
-                Repo.clone_from("<#url>",page3_path.get('1.0','end'))
+            def download(path):
+                Repo.clone_from("<#url>",path)
 
-            threading.Thread(target=lambda:setup(file_name,file_size)).start()
-            threading.Thread(target=lambda:download()).start()
+            download(path)
+            setup()
 
-        page3_next=Button(page3, text="Next", command=lambda:page3_nextp(file_name,file_size))
+        page3_next=Button(page3, text="Next", command=lambda:page3_nextp(file_name,file_size,page3_path.get('1.0','end').strip('\n')))
         page3_next.pack()
         
 
